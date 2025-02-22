@@ -1,0 +1,282 @@
+#include<iostream>
+#include<string>
+#include<cstdio>
+using namespace std;
+int add(int a,int b){
+    return a+b;
+}
+int jian(int a,int b){
+    return a-b;
+}
+int cheng(int a,int b){
+    return a*b;
+}
+int chu(int a,int b){
+    if(b==0){
+        cout<<"除数不能为'0'"<<endl;
+        return 0;
+    }
+    return a/b;
+}
+double f_add(double a,double b){
+    return a+b;
+}
+double f_jian(double a,double b){
+    return a-b;
+}
+double f_cheng(double a,double b){
+    return a*b;
+}
+double f_chu(double a,double b){
+        if(b==0){
+        cout<<"除数不能为'0'"<<endl;
+        return 0;
+    }
+    return a/b;
+}
+void loop(int a,int b,bool isforloop){
+    if(isforloop){
+        for(int i=0;i<b;i++){
+            cout<<a<<endl;
+        }
+    }
+    else{
+        int i = 0;
+        while(i<b){
+            cout<<a<<endl;
+            i++;
+        }
+    }
+} 
+int lyu(int a,int b){
+    return a && b;
+}
+int lhuo(int a,int b){
+    return a || b;
+}
+int wyu(int a,int b){
+    return a & b;
+}
+int whuo(int a,int b){
+    return a | b;
+}
+int wyihuo(int a,int b){
+    return a ^ b;
+}
+int wqvfan(int a){
+    return ~a;
+}
+int wzuoyi(int a,int b){
+    return a << b;
+}
+int wyouyi(unsigned int a,unsigned int b){
+    return a >> b;
+}
+int main(){
+    int s;
+    while(1){
+        std::string k1 = "函数计算";
+        std::string k2 = "for循环";
+        std::string k3 = "while循环";
+        std::string k4 = "内存查询";
+        std::string k5 = "逻辑运算";
+        std::string k6 = "位运算";
+        std::string q;
+        cout<<"请输入要运行的程序：";
+        cin>>q;
+        if(q==k1){
+            int n;
+            cout<<"请输入要输入的数字的小数位数：";
+            cin>>n;
+            if(n==0){
+                long long a;
+                long long b;
+                cout<<endl;
+                cout<<"请输入第一个数字：";
+                cin>>a;
+                std::string d;
+                cout<<"请输入运算符号(+,-,x,/):";
+                cin>>d;
+                cout<<"请输入第二个数字：";
+                cin>>b;
+                long long c;
+                if(d=="+"){
+                    c = add(a,b);
+                    cout<<endl<<c<<endl;
+                }
+                else if(d=="-"){
+                    c = jian(a,b);
+                    cout<<endl<<c<<endl;
+                }
+                else if(d=="x"){
+                    c = cheng(a,b);
+                    cout<<endl<<c<<endl;
+                }
+                else if(d=="/"){
+                    c = chu(a,b);
+                    cout<<endl<<c<<endl;
+                }
+            }else{
+                float a;
+                float b;
+                cout<<endl;
+                cout<<"请输入第一个数字：";
+                cin>>a;
+                std::string d;
+                cout<<"请输入运算符号(+,-,x,/):";
+                cin>>d;
+                cout<<"请输入第二个数字：";
+                cin>>b;
+                float c;
+                if(d=="+"){
+                    c = f_add(a,b);
+                    cout<<endl<<c<<endl;
+                }else if(d=="-"){
+                    c = f_jian(a,b);
+                    cout<<endl<<c<<endl;
+                }else if(d=="x"){
+                    c = f_cheng(a,b);
+                    cout<<endl<<c<<endl;
+                }else if(d=="/"){
+                    c = f_chu(a,b);
+                    cout<<endl<<c<<endl;
+                }
+            }
+        }
+        else if(q==k2){
+            int a;
+            int b;
+            int i;
+            cout<<"请输入要循环的数字：";
+            cin>>a;
+            cout<<"请输入要循环的次数：";
+            cin>>b;
+            loop(a,b,true);
+        }
+        else if(q==k3){
+            int a;
+            int b;
+            cout<<"请输入要循环的数字：";
+            cin>>a;
+            cout<<"请输入要循环的次数：";
+            cin>>b;
+            loop(a,b,false);
+        }
+        else if(q==k4){
+            cout<<"请输入要查询的数据类型(整数,小数,字符):";
+            std::string GB;
+            cin>>GB;
+            if(GB=="整数"){
+                
+                int a;
+                cout<<"请输入要查询的整数:";
+                cin>>a;
+                int b = sizeof(a);
+                printf("内存是:%d字节",b);
+            }
+            else if(GB=="小数"){
+                double a;
+                cout<<"请输入要查询的小数:";
+                cin>>a;
+                int b = sizeof(a);
+                printf("内存是:%d字节",b);
+            }
+            else if(GB=="字符"){
+                char a;
+                cout<<"请输入要查询的字符:";
+                int b = sizeof(a);
+                printf("内存是:%d字节",b);
+            }
+        }
+        else if(q==k5){
+            std::string e;
+            cout<<"请输入要进行的运算:";
+            cin>>e;
+            if(e=="与"){
+                int a,b;
+                cout<<"请输入第一个数字:";
+                cin>>a;
+                cout<<"请输入第二个数字:";
+                cin>>b;
+                int c = lyu(a,b);
+                printf("结果是:%d",c);
+            }
+            else if(e=="或"){
+                int a,b;
+                cout<<"请输入第一个数字:";
+                cin>>a;
+                cout<<"请输入第二个数字:";
+                cin>>b;
+                int c = lhuo(a,b);
+                printf("结果是:%d",c);
+            }
+        }
+        else if(q==k6){
+            std::string e;
+            cout<<"请输入要进行的运算:";
+            cin>>e;
+            if(e=="与"){
+                int a,b;
+                cout<<"请输入第一个数字:";
+                cin>>a;
+                cout<<"请输入第二个数字:";
+                cin>>b;
+                int c = wyu(a,b);
+                printf("结果是:%d",c);
+            }
+            if(e=="或"){
+                int a,b;
+                cout<<"请输入第一个数字:";
+                cin>>a;
+                cout<<"请输入第二个数字:";
+                cin>>b;
+                int c = whuo(a,b);
+                printf("结果是:%d",c);
+            }
+            if(e=="异或"){
+                int a,b;
+                cout<<"请输入第一个数字:";
+                cin>>a;
+                cout<<"请输入第二个数字:";
+                cin>>b;
+                int c = wyihuo(a,b);
+                printf("结果是:%d",c);
+            }
+            if(e=="取反"){
+                int a;
+                cout<<"请输入要取反的数字:";
+                cin>>a;
+                int c = wqvfan(a);
+                printf("结果是:%d",c);
+            }
+            if(e=="左移"){
+                int a,b;
+                cout<<"请输入要进行位移的数字:";
+                cin>>a;
+                cout<<"请输入要左移的位数:";
+                cin>>b;
+                int c = wzuoyi(a,b);
+                printf("结果是:%d",c);
+            }
+            if(e=="右移"){
+                int a,b;
+                cout<<"请输入要进行位移的数字:";
+                cin>>a;
+                cout<<"请输入要右移的位数:";
+                cin>>b;
+                int c = wyouyi(a,b);
+                printf("结果是:%d",c);
+            }
+        }
+        cout<<endl;
+        cout<<"输入'1'继续运行，输入'0'结束运行：";
+        cin>>s;
+        if(s==1){
+            continue;
+        }
+        else if(s==0){
+            break;
+        }
+    }
+    return 0;
+}
